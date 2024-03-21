@@ -38,7 +38,8 @@ function App() {
 
 	useEffect(() => {
 		const handler = (e: KeyboardEvent) => {
-			const key = e.key;
+			// Convert the key to lower case, to make it case-insensitive
+			const key = e.key.toLowerCase();
 			// If it's not a letter, ignore it
 			if (!key.match(/^[a-z]$/)) return;
 
