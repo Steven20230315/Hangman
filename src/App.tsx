@@ -1,4 +1,15 @@
+import { useState, useEffect, useCallback } from 'react';
+import words from './wordList.json';
+import HangmanDrawing from './components/HangmanDrawing';
+import HangmanWord from './components/HangmanWord';
+import Keyboard from './components/Keyboard';
+
+const wordGenerator = () => {
+	return words[Math.floor(Math.random() * words.length)];
+};
+
 function App() {
+	// set the word for player to guess
 	const [word, setWord] = useState('');
 
 	// Track the letters guessed by the player
@@ -13,6 +24,7 @@ function App() {
 	useEffect(() => {
 		setWord(wordGenerator());
 	}, []);
+
 	// useCallback to prevent unnecessary re-renders.
 	// Since this function is included in the dependency array of the useEffect hook, you need to use useCallback to prevent unnecessary re-renders.
 	const handleAddGuessedLetter = useCallback(
@@ -40,10 +52,27 @@ function App() {
 			document.removeEventListener('keypress', handler);
 		};
 	}, [handleAddGuessedLetter]);
+
 	return (
-		<>
-			<h1>Hi</h1>
-		</>
+		<div
+			style={{
+				maxWidth: '800px',
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '2rem',
+				margin: '0 auto',
+				alignItems: 'center',
+			}}
+		>
+			<div style={{ fontSize: '2rem', textAlign: 'center' }}>Lose or Win</div>
+			<HangmanDrawing numberOfIncorrectGuesses={incorrectLetters.length} />
+			<HangmanWord word={word} guessedLetters={guessedLetters} />
+			<Keyboard
+				activeLetters={guessedLetters.filter((letter) => word.includes(letter))}
+				inactiveLetters={incorrectLetters}
+				addGuessedLetter={handleAddGuessedLetter}
+			/>
+		</div>
 	);
 }
 
