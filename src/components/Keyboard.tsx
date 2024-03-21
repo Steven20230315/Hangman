@@ -1,13 +1,64 @@
 import Wrapper from '../assets/wrappers/KeyboardWrapper';
 
-const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+const KEYS = [
+	'a',
+	'b',
+	'c',
+	'd',
+	'e',
+	'f',
+	'g',
+	'h',
+	'i',
+	'j',
+	'k',
+	'l',
+	'm',
+	'n',
+	'o',
+	'p',
+	'q',
+	'r',
+	's',
+	't',
+	'u',
+	'v',
+	'w',
+	'x',
+	'y',
+	'z',
+];
 
-export default function Keyboard() {
+type KeyboardProps = {
+	// An array that stores the
+	activeLetters: string[];
+	inactiveLetters: string[];
+	addGuessedLetter: (letter: string) => void;
+};
+
+export default function Keyboard({
+	activeLetters,
+	inactiveLetters,
+	addGuessedLetter,
+}: KeyboardProps) {
 	return (
 		<Wrapper>
-			{LETTERS.map((letter, index) => (
-				<button className='letter_btn' key={index}>{letter}</button>
-			))}
+			{KEYS.map((key) => {
+				const isActive = activeLetters.includes(key);
+				const isInactive = inactiveLetters.includes(key);
+				return (
+					<button
+						type='button'
+						onClick={() => addGuessedLetter(key)}
+						key={key}
+						className={`letter_btn ${isActive ? 'active' : ''} ${
+							isInactive ? 'inactive' : ''
+						}`}
+					>
+						{key.toUpperCase()}
+					</button>
+				);
+			})}
 		</Wrapper>
 	);
 }
