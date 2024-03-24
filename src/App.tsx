@@ -3,7 +3,7 @@ import words from './wordList.json';
 import HangmanDrawing from './components/HangmanDrawing';
 import HangmanWord from './components/HangmanWord';
 import Keyboard from './components/Keyboard';
-import HangmanState from './components/HangmanScoreboard';
+// import HangmanState from './components/HangmanScoreboard';
 
 const wordGenerator = () => {
 	return words[Math.floor(Math.random() * words.length)];
