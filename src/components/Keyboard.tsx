@@ -34,12 +34,14 @@ type KeyboardProps = {
 	activeLetters: string[];
 	inactiveLetters: string[];
 	addGuessedLetter: (letter: string) => void;
+	disabled: boolean;
 };
 
 export default function Keyboard({
 	activeLetters,
 	inactiveLetters,
 	addGuessedLetter,
+	disabled,
 }: KeyboardProps) {
 	return (
 		<Wrapper>
@@ -53,7 +55,8 @@ export default function Keyboard({
 						key={key}
 						className={`letter_btn ${isActive ? 'active' : ''} ${
 							isInactive ? 'inactive' : ''
-						}`}
+							}`}
+						disabled={isInactive || isActive || disabled}
 					>
 						{key.toUpperCase()}
 					</button>

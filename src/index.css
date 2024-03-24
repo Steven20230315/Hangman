@@ -1,0 +1,12 @@
+* {
+  font-family: monospace;
+}
+
+.main {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  align-items: center;
+}

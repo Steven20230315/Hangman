@@ -3,10 +3,9 @@ import styled from "styled-components";
 const HangmanWordWrapper = styled.div`
 display:flex;
 gap:0.45rem;
-font-size:6rem;
+font-size:3rem;
 font-weight:bold;
 text-transform:uppercase;
-font-family:monospace;
 
 .letter_underline {
     border-bottom: 0.5rem solid black;

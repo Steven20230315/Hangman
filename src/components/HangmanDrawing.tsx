@@ -22,7 +22,7 @@ export default function HangmanDrawing({
 	numberOfIncorrectGuesses,
 }: HangmanDrawingProps) {
 	return (
-		<Gallows $backgroundColor='black' $base={10}>
+		<Gallows $backgroundColor='black' $base={5}>
 			{BODY_PARTS.slice(0, numberOfIncorrectGuesses)}
 			<div className='rope'></div>
 			<div className='top-bar'></div>
