@@ -1,31 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Home, Login, Register, HomeLayout } from './page/index.ts';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
+		element: <HomeLayout />,
 		children: [
 			{
-				path: '/history',
-				element: <h1>This is the test route</h1>,
+				index: true,
+				element: <Home />,
 			},
 			{
-				path: '/testing',
-				element: <h1>This is the test route</h1>,
+				path: '/login',
+				element: <Login />,
+			},
+			{
+				path: '/register',
+				element: <Register />,
+			},
+			{
+				path: '/hangman',
+				element: <App />,
 			},
 		],
-	},
-	{
-		path: 'test',
-		element: <h1>This is the test route</h1>,
-	},
-	{
-		path: 'history',
-		element: <h1>This is the test route</h1>,
 	},
 ]);
 
