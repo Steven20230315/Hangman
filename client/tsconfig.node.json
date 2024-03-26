@@ -1,11 +1,17 @@
 {
-  "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "strict": true
-  },
-  "include": ["vite.config.ts"]
+	"compilerOptions": {
+		"composite": true,
+		"skipLibCheck": true,
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"plugins": [
+			{
+				"name": "@styled/typescript-styled-plugin",
+				"tags": ["styled", "css", "sty"]
+			}
+		]
+	},
+	"include": ["vite.config.ts"]
 }

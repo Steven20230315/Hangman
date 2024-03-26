@@ -9,7 +9,9 @@
 		"prestart": "npm run build",
 		"start": "node dist/server.js",
 		"preserver": "npm run build",
-		"server": "concurrently \"npx tsc -w\" \"nodemon dist/server.js --watch src\""
+		"server": "concurrently \"npx tsc -w\" \"nodemon dist/server.js --watch dist --watch src\"",
+		"client": "cd client && npm run dev",
+		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
 	},
 	"keywords": [],
 	"author": "",
