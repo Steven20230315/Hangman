@@ -5,7 +5,10 @@ type HangmanWordProps = {
 	guessedLetters: string[];
 };
 
-export default function HangmanWord({ word, guessedLetters }: HangmanWordProps) {
+export default function HangmanWord({
+	word,
+	guessedLetters,
+}: HangmanWordProps) {
 	return (
 		<Wrapper>
 			{word.split('').map((letter, index) => (

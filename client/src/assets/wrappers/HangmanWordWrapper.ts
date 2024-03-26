@@ -1,28 +1,27 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const HangmanWordWrapper = styled.div`
-display:flex;
-gap:0.45rem;
-font-size:6rem;
-font-weight:bold;
-text-transform:uppercase;
-font-family:monospace;
+	display: flex;
+	gap: 0.45rem;
+	font-size: 6rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family: monospace;
 
-.letter_underline {
-    border-bottom: 0.5rem solid black;
-}
+	.letter_underline {
+		border-bottom: 0.5rem solid black;
+	}
 
-.hidden{
-    visibility: hidden;
-}
+	.hidden {
+		visibility: hidden;
+	}
 
-.guessed{
-    visibility: visible;
-}
+	.guessed {
+		visibility: visible;
+	}
 
-.letter {
-    
-}
+	.letter {
+	}
 `;
 
-export default HangmanWordWrapper
+export default HangmanWordWrapper;
