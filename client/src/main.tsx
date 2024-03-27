@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Home, Login, Register, HomeLayout } from './page/index.ts';
+import { Home, Login, Register, Landing, Categories } from './page/index.ts';
+import { requestWordListAction } from './utilities/action.ts';
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <HomeLayout />,
+		element: <Landing />,
 		children: [
 			{
 				index: true,
@@ -24,6 +25,16 @@ const router = createBrowserRouter([
 			{
 				path: '/hangman',
 				element: <App />,
+			},
+			{
+				path: '/categories',
+				element: <Categories />,
+				action: requestWordListAction,
+			},
+			{
+				path: '/categories/:category',
+				element: <Categories />,
+				action: requestWordListAction,
 			},
 		],
 	},

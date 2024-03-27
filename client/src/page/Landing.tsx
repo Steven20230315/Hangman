@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar.tsx';
 import GlobalStyles from '../components/styles/GlobalStyles.ts';
-export default function HomeLayout() {
+export default function Landing() {
 	return (
 		<>
 			<GlobalStyles />
 			<Navbar />
-			<Outlet />
+			<div className='main'>
+				<Outlet />
+			</div>
 		</>
 	);
 }
