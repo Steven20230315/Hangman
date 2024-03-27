@@ -47,7 +47,7 @@ function App() {
 			handleAddGuessedLetter(key);
 		};
 		document.addEventListener('keypress', handler);
-		// This will clean up the event listener when the component unmounts to prevent memory leaks. 
+		// This will clean up the event listener when the component unmounts to prevent memory leaks.
 		// The event listener will not be replaced by adding a new one. If you didn't remove the event listener, there will be multiple event listeners attached to the elements.
 		return () => {
 			document.removeEventListener('keypress', handler);
@@ -57,7 +57,7 @@ function App() {
 	return (
 		<div
 			style={{
-				maxWidth: '800px',
+				width: '100%',
 				display: 'flex',
 				flexDirection: 'column',
 				gap: '2rem',
